@@ -7,26 +7,31 @@ import { useEffect } from "react";
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
-  const [fontsLoaded, error] = useFonts({
-    "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
-    "Ubuntu-Bold": require("../assets/fonts/Ubuntu-Bold.ttf"),
-  });
+  SplashScreen.hideAsync();
 
-  useEffect(() => {
-    if (error) throw error;
+  // const [fontsLoaded, error] = useFonts({
+  //   "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
+  //   "Ubuntu-Bold": require("../assets/fonts/Ubuntu-Bold.ttf"),
+  // });
 
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, error]);
+  // useEffect(() => {
+  //   if (error) throw error;
 
-  if (!fontsLoaded && !error) {
-    return null;
-  }
+  //   if (fontsLoaded) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded, error]);
+
+  // if (!fontsLoaded && !error) {
+  //   return null;
+  // }
   return (
     <Stack>
       <Stack.Screen name="index" />
-      <Stack.Screen name="(tabs)" />
+      <Stack.Screen
+        name="(tabs)"
+        // options={{ headerShown: false }}
+      />
     </Stack>
   );
 };

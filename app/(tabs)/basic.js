@@ -4,6 +4,13 @@ import React from "react";
 // import stylesLight from "../../theme/light/style";
 // import stylesDark from "../../theme/dark/style";
 import { router } from "expo-router";
+import styled from "styled-components/native";
+
+const StyledText = styled.Text`
+  font-size: 20px;
+  color: blue;
+  ${({ title, value }) => title && `${title}: ${value};`}
+`;
 
 const basic = () => {
   //   const [theme, setTheme] = useState(stylesLight);
@@ -40,6 +47,9 @@ const basic = () => {
         <Text>A</Text>
         <Text>B</Text>
         <Text>C</Text>
+      </View>
+      <View>
+        <Text>ABC</Text>
       </View>
     </View>
   );
